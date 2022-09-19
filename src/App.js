@@ -10,10 +10,13 @@ import CatEdit from './pages/CatEdit'
 import Home from './pages/Home'
 import NotFound from './pages/NotFound'
 import { Routes, Route } from "react-router-dom"
+import cats from './mockCats'
 
 
+const App = () => {
 
-function App() {
+  console.log(cats)
+
   return (
     <div>
       App
