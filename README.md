@@ -129,5 +129,77 @@ export default cats
 
 # Testing 
 
+# Jest
+  - Built into React when we use "Create React App"
+  - Perfect for working with lots of different testing libraries 
+  - Has a set of methods for creating simple tests
+    - describe
+    - it/ test
+    - expect
+  
 
-$ yarn add --dev @testing-library/user-event
+
+# RTL (React-Testing-Library)  
+" The more your tests resemble the way your software is used, the more confidence they can give you." - RTL authors
+
+- Built into React when we use "Create React App"
+- Great for accessing both components and DOM nodes
+  - The rtl authors recommend you focus on nodes instead of entire Components
+-  
+
+
+Basic Test
+ ```javascript
+import { screen, render } from '@testing-library/react'
+import Component from './Component'
+
+
+describe("<Component/>", ()=>{
+  // A user can see the Component page
+  test("renders the Component page for the user", ()=>{
+    // Arrange
+    render(<Component/>)
+    // Act - 
+      // can be interactions like clicking, hovering or typing
+      // can be passive, like seeing something
+    const element = screen.getByText(/It's text!/i)
+    // Assert
+    expect(element).toBeInTheDocument()
+  })
+})
+```
+
+Interactive test
+  - using User-Event Testing Library
+  - If you need to update the user-event library   
+    $ `yarn add --dev @testing-library/user-event`
+    
+ ```javascript
+
+import { screen, render } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
+import { BrowserRouter } from "react-router-dom";
+import Component from './Component'
+
+
+describe("<Component/>", ()=>{
+  test("Component renders without error", ()=>{
+    // Arrange
+    render(<Component/>)
+    const indexLink = screen.getByText(/Meet the Cats/i)
+    expect(indexLink).toBeInTheDocument()
+  })
+  test("Component has clickable links", () => {
+    render(
+      <BrowserRouter>
+        <Component />
+      </BrowserRouter>
+    )
+    userEvent.click(screen.getByText("Link 1"))
+    expect(screen.getByText("Link 1")).toBeInTheDocument()
+    userEvent.click(screen.getByText("Link 2"))
+    expect(screen.getByText("Link 2")).toBeInTheDocument()
+    userEvent.click(screen.getByText("Link 3"))
+    expect(screen.getByText("Link 3")).toBeInTheDocument()
+  })
+})
