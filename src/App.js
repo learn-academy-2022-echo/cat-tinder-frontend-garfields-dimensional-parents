@@ -18,8 +18,7 @@ const App = () => {
   console.log(cats)
 
   return (
-    <div>
-      App
+    <>
       <Header/>
       <Routes>
         <Route path="/" element={<Home />}/>
@@ -30,8 +29,7 @@ const App = () => {
         <Route path="/*" element={<NotFound />} />
       </Routes>
       <Footer/>
-
-    </div>
+    </>
   );
 }
 

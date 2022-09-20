@@ -3,10 +3,13 @@ import React from 'react'
 
 // Component declaration 
 const Footer = () => {
-  
   // JSX Return
   return (
-    <div> Footer </div>
+    <>
+      <footer>
+        <p>&copy; 2022 Charlean, Austin & Sarah</p>
+      </footer>
+    </>
   )
 }
 
