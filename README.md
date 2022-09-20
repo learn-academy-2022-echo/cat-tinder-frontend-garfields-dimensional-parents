@@ -125,3 +125,9 @@ export default cats
   - Nav Bars
   - Links
 - Be sure to double check the updates to your react project as you bring in the styled components. 
+
+
+# Testing 
+
+
+$ yarn add --dev @testing-library/user-event
