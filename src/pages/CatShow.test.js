@@ -1,21 +1,23 @@
-import { screen, render } from '@testing-library/react'
-import CatShow from './CatShow'
-import mockCats from '../mockCats'
-import { MemoryRouter } from 'react-router-dom'
+import { render, screen } from "@testing-library/react"
 
-describe("<CatShow/>", () => {
-  const cat = mockCats[0]
-  test("renders a card for the cat that is passed down to component", () => {
-    // Arrange
-    const route = "/catshow/1"
-    render(
-        <MemoryRouter initialEntries={[route]}>
-          <CatShow cats={mockCats} />
-        </MemoryRouter> 
-        )
-    // Act 
-      const meowElement = screen.getByText(cat.name)
-      // Assert
-      expect(meowElement).toBeInTheDocument()
-  })
-})
+import { MemoryRouter, Route, Routes } from "react-router-dom"
+import CatShow from "./CatShow"
+import mockCats from "../mockCats";
+
+
+const renderComponent = () => {
+  render(
+    <MemoryRouter initialEntries={["/catshow/1"]}>
+      <Routes>
+        <Route path='catshow/:id' element={<CatShow cats={mockCats} />}/>
+      </Routes>
+    </MemoryRouter>
+  )
+} 
+describe('CatShow', () => { 
+    test("render a card with a cat enjoys", ()=>{
+      renderComponent()
+      expect(screen.getByText(mockCats[0].enjoys)).toBeInTheDocument()
+    })
+ })
+
