@@ -222,7 +222,7 @@ describe("<Component/>", ()=>{
   - Shows one instance of our data
 
 
-### Create functionality
+## Create functionality
 
 - As a developer, I have test coverage on my new page.
  - create a test file for new page `CatNew.test.js`
@@ -239,18 +239,72 @@ describe("<Component/>", ()=>{
   // not required for test to pass, developer tool for troubleshooting
   screen.debug(heading)
 ```
+- [Checkout different roles](https://www.w3.org/TR/html-aria/#document-conformance-requirements-for-use-of-aria-attributes-in-html)
 
 - As a user, I can fill out a form to add a new cat.
   - create a test for the form
   - copy/paste code from reactstrap
+  - update each FormGroup for the different keys in the cat object 
+  ```javascript
+    <FormGroup>
+    <Label for="name">
+      Cat's Name
+    </Label>
+    <Input
+      name="name"
+      placeholder="Put your that fur ball's name"
+      type="text"
+    />
+    </FormGroup>
+  ```
 
 - As a developer, I can store the cat object in state.
   - useState to store state, have a function update the state of the cat objects
+  ```javascript
+    const [newCat, setNewCat] = useState({
+    name: "",
+    age: "",
+    enjoys: "",
+    image: ""
+  })
+  ```
   - collect inputs: method that will track the DOM event and then update the values in our newCat object
+  ```javascript
+    const handleCats = (e) => {
+      console.log(e)
+      console.log(e.target.name)
+      console.log(e.target.value)
+    }
+    ...
+    <Input
+      name="name"
+      placeholder="Put your that fur ball's name"
+      type="text"
+      onChange={handleCats}
+    />
+  ```
 
 - As a developer, I can pass the cat object to App.js on submit and see the cat object logged in the console.
+    ```javascript
+      //Create a method in App.js
+        const createCat = (cat) => {
+          console.log("Cat has been created", cat)
+        }
+
+      //Pass it through the component call of the CatNew.js
+        <Route path="/catnew" element={<CatNew createCat={createCat}/>} />
+
+      //Create a method in CatNew to have access to that method
+        const CatNew = ({ createCat }) => {...}
+
+      //Use onClick attribute to trigger that functionality
+        <Button
+          onClick={handleSubmit}
+          name="submit"
+        >
+
+  ```
+
 - As a user, I can be routed to the index page after I submit the new cat form.
-
-https://cdn.inprnt.com/thumbs/f3/7e/f37e42ee7d24757dac636c718f36b279.jpg?response-cache-control=max-age=2628000
-
-https://media.vanityfair.com/photos/5e27310def889c00087c7928/2:3/w_887,h_1331,c_limit/taylor-swift-cats.jpg
+  - useNavigate
+  - Navigate to index page after submitting a form
