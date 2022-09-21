@@ -203,3 +203,25 @@ describe("<Component/>", ()=>{
     expect(screen.getByText("Link 3")).toBeInTheDocument()
   })
 })
+```
+
+# CRUD Functionality 
+
+# Read Functionality
+
+## Index
+  - Shows all the data
+
+    # Testing
+    - Smart and dumb components 
+    - testing a dumb component with props
+      - It can only check for values it is being handed 
+      - test for all the cats being passed as props
+      
+## Show
+  - Shows one instance of our data
+
+
+
+
+
