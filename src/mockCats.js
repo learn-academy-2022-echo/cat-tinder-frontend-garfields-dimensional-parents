@@ -1,4 +1,4 @@
-const cats = [
+const mockCats = [
   {
     id: 1,
     name: "Peaches",
@@ -11,7 +11,7 @@ const cats = [
     name: "Thomas",
     age: 3,
     enjoys: "Sleeping",
-    image: "https://static.wikia.nocookie.net/thundercats/images/c/c2/LionOFromThunderCats1985SeriesEpisodeTroubleWithTimeSc01.jpg/revision/latest?cb=20200331160007"
+    image: "https://i.scdn.co/image/ab6761610000e5ebdfbd91e170ce6cf58b84dbbb"
   }, 
   {
     id: 3,
@@ -28,4 +28,4 @@ const cats = [
     image: "https://cdn.flickeringmyth.com/wp-content/uploads/2020/06/corden-cats1.jpg"
   }
 ]
-export default cats
+export default mockCats

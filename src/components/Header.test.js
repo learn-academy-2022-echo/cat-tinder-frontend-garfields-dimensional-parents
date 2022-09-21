@@ -7,7 +7,11 @@ import Header from './Header'
 describe("<Header/>", ()=>{
   test("Header renders without error", ()=>{
     // Arrange
-    render(<Header/>)
+    render(
+      <BrowserRouter>
+        <Header />
+      </BrowserRouter>
+    )
     const indexLink = screen.getByText(/Meet the Cats/i)
     expect(indexLink).toBeInTheDocument()
   })

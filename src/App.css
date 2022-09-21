@@ -66,7 +66,7 @@ header {
 }
 
 /* ---INDEX--- */
-/* .index-cards {
+.index-cards {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
@@ -83,8 +83,12 @@ header {
 .btn.btn-secondary:hover {
   color: #FF0080;
   background-color: white;
-} */
-
+}
+.display-flex{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
 /* ---NOT FOUND--- */
 .cat-friend {
   width: 400px;
@@ -93,6 +97,12 @@ header {
 }
 
 /* ---SHOW--- */
-/* .card-show.card.card-body {
+.card-show.card.card-body {
   margin: 0 auto;
-} */
+}
+#show-profile{
+  height: 30%;
+  width: 30%;
+  display: flex;
+  justify-content: space-around;
+}
