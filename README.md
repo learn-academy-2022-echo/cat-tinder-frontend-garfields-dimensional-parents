@@ -222,6 +222,35 @@ describe("<Component/>", ()=>{
   - Shows one instance of our data
 
 
+### Create functionality
 
+- As a developer, I have test coverage on my new page.
+ - create a test file for new page `CatNew.test.js`
+ - Red-Green-Refactor
+ - See the test fail
+ - Update the CatNew.js
+ - See the test pass
 
+```javascript
+//  testing the role accessibility attribute
+  const heading = screen.getByRole('heading', {
+    name: /Add a feline/i
+  })
+  // not required for test to pass, developer tool for troubleshooting
+  screen.debug(heading)
+```
 
+- As a user, I can fill out a form to add a new cat.
+  - create a test for the form
+  - copy/paste code from reactstrap
+
+- As a developer, I can store the cat object in state.
+  - useState to store state, have a function update the state of the cat objects
+  - collect inputs: method that will track the DOM event and then update the values in our newCat object
+
+- As a developer, I can pass the cat object to App.js on submit and see the cat object logged in the console.
+- As a user, I can be routed to the index page after I submit the new cat form.
+
+https://cdn.inprnt.com/thumbs/f3/7e/f37e42ee7d24757dac636c718f36b279.jpg?response-cache-control=max-age=2628000
+
+https://media.vanityfair.com/photos/5e27310def889c00087c7928/2:3/w_887,h_1331,c_limit/taylor-swift-cats.jpg

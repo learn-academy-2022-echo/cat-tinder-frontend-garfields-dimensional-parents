@@ -1,8 +1,93 @@
-import React from 'react'
+// imports
+import React, {useState} from 'react'
+import { Form, FormGroup, Label, Input, Button} from 'reactstrap'
 
-const CatNew = () => {
+
+const CatNew = ({ createCat }) => {
+
+  // data
+  const [newCat, setNewCat] = useState({
+    name: "",
+    age: "",
+    enjoys: "",
+    image: ""
+  })
+
+  // methods/functions
+  const handleCats = (e) => {
+    // console.log(e.target.name)
+    // console.log(e.target.value)
+    setNewCat({...newCat, [e.target.name]: e.target.value})
+    console.log(newCat)
+  }
+
+  const handleSubmit = () => {
+    createCat(newCat)
+  }
+
+  console.log("newcat object", newCat)
+
   return (
-    <div> CatNew </div>
+    <>
+      <h2> Add a feline </h2>
+      <Form>
+        <FormGroup>
+          <Label for="name">
+            Cat's Name
+          </Label>
+          <Input
+            name="name"
+            placeholder="Put your that fur ball's name"
+            type="text"
+            onChange={handleCats}
+            value={newCat.name}
+          />
+        </FormGroup>
+        <FormGroup>
+          <Label for="age">
+            Cat's Age
+          </Label>
+          <Input
+            name="age"
+            placeholder="Put your that fur ball's age"
+            type="number"
+            onChange={handleCats}
+            value={newCat.age}
+          />
+        </FormGroup>
+        <FormGroup>
+          <Label for="enjoys">
+            Cat's Interests
+          </Label>
+          <Input
+            name="enjoys"
+            placeholder="What gets your cat meowing"
+            type="text"
+            onChange={handleCats}
+            value={newCat.enjoys}
+          />
+        </FormGroup>
+        <FormGroup>
+          <Label for="image">
+            Cat's Profile
+          </Label>
+          <Input
+            name="image"
+            placeholder="Load up your purrrrrfect photo"
+            type="url"
+            onChange={handleCats}
+            value={newCat.image}
+          />
+        </FormGroup>
+        <Button
+          color="primary"
+          onClick={handleSubmit}
+          name="submit"
+        >
+          Submit
+        </Button>
+      </Form>
+    </>
   )
 }
 export default CatNew
