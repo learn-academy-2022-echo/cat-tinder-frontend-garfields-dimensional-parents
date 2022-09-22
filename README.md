@@ -278,7 +278,7 @@ describe("<Component/>", ()=>{
     ...
     <Input
       name="name"
-      placeholder="Put your that fur ball's name"
+      placeholder="Put that fur ball's name"
       type="text"
       onChange={handleCats}
     />

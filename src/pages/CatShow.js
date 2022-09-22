@@ -1,6 +1,6 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import { Card, CardBody, CardImg, CardText, CardTitle } from 'reactstrap'
+import { Card, CardText, CardTitle } from 'reactstrap'
 
 const CatShow = ({ cats }) => {
   const { id } = useParams()
@@ -9,21 +9,18 @@ const CatShow = ({ cats }) => {
   const cat = cats?.find(cat => cat.id === +id)
 
   return (
-    <div id="show-profile">
-      <Card className="my-2">
+    <div className="page-body">
+      <Card body className="card-show">
         <img
           alt="Card image cap"
           src={cat.image}
         />
-        <CardBody>
-          <CardTitle tag="h5">
-            { cat.name }, { cat.age}
-          </CardTitle>
-          <CardText>
-            {cat.enjoys}
-          </CardText>
-
-        </CardBody>
+        <CardTitle tag="h5">
+          { cat.name }, { cat.age}
+        </CardTitle>
+        <CardText>
+          {cat.enjoys}
+        </CardText>
       </Card>
     </div>
   )
