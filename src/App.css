@@ -30,13 +30,13 @@ a:hover {
 }
 
 /* ---FORMS--- */
-/* form {
+form {
   margin-left: 20%;
   margin-right: 20%;
 }
-input {
+input, h2 {
   text-align: center;
-} */
+}
 
 /* ---HEADER--- */
 header {
@@ -104,5 +104,6 @@ header {
   height: 30%;
   width: 30%;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  align-items: center;
 }
