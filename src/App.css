@@ -72,7 +72,7 @@ header {
   flex-wrap: wrap;
 }
 .card.card-body {
-  width: 300px;
+  width: 500px;
   background-color: #FFFEF1;
   margin: 20px;
 }
@@ -100,9 +100,7 @@ header {
 .card-show.card.card-body {
   margin: 0 auto;
 }
-#show-profile{
-  height: 30%;
-  width: 30%;
+#profile-show {
   display: flex;
   justify-content: center;
   align-items: center;

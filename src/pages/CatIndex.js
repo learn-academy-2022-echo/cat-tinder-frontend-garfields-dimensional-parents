@@ -7,33 +7,35 @@ import { NavLink } from 'react-router-dom'
 const CatIndex = ({ cats }) => {
   // JSX Return
   return (
-    <main className="display-flex">
-      { cats?.map((cat, index) => {
-        return (
-          <Card
-            style={{
-              width: '18rem'
-            }}
-            key={index}
-          >
-            <img
-              alt="Sample"
-              src={cat.image}
-            />
-            <CardBody>
-              <CardTitle tag="h5">
-                {cat.name}
-              </CardTitle>
-              <NavLink to={`/catshow/${cat.id}`} className="nav-link">
-                <Button>
-                  See more details
-                </Button>
-              </NavLink>
-            </CardBody>
-          </Card>
-        )
-      })
-      }
+    <main className="page-body">
+      <div className="index-cards">
+        { cats?.map((cat, index) => {
+          return (
+            <Card
+              style={{
+                width: '18rem'
+              }}
+              key={index}
+            >
+              <img
+                alt="Sample"
+                src={cat.image}
+              />
+              <CardBody>
+                <CardTitle tag="h5">
+                  {cat.name}
+                </CardTitle>
+                <NavLink to={`/catshow/${cat.id}`} className="nav-link">
+                  <Button>
+                    See more details
+                  </Button>
+                </NavLink>
+              </CardBody>
+            </Card>
+          )
+        })
+        }
+      </div>
     </main>
   )
 }

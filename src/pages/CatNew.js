@@ -32,7 +32,7 @@ const CatNew = ({ createCat }) => {
 
   return (
     <>
-      <h2> Add a feline </h2>
+      <h2> Cat's Profile </h2>
       <Form>
         <FormGroup>
           <Label for="name">
@@ -40,7 +40,7 @@ const CatNew = ({ createCat }) => {
           </Label>
           <Input
             name="name"
-            placeholder="Put your that fur ball's name"
+            placeholder="Put that fur ball's name"
             type="text"
             onChange={handleCats}
             value={newCat.name}
@@ -52,7 +52,7 @@ const CatNew = ({ createCat }) => {
           </Label>
           <Input
             name="age"
-            placeholder="Put your that fur ball's age"
+            placeholder="Put that fur ball's age"
             type="number"
             onChange={handleCats}
             value={newCat.age}
@@ -72,7 +72,7 @@ const CatNew = ({ createCat }) => {
         </FormGroup>
         <FormGroup>
           <Label for="image">
-            Cat's Profile
+            Cat's Picture
           </Label>
           <Input
             name="image"
