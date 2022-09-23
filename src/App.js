@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import logo from './logo.svg';
 import './App.css';
 import Footer from './components/Footer'
@@ -14,11 +14,32 @@ import mockCats from './mockCats'
 
 
 const App = () => {
-  const [cats, setCats] = useState(mockCats)
-  console.log(cats)
+  const [cats, setCats] = useState([])
+
+  // request function with fetch to INDEX endpoint
+  const readCat = () => {
+    fetch('http://localhost:3000/cats')
+    .then(response => response.json())
+    .then(payload => setCats(payload))
+    .catch(errors => console.log(errors))
+  }
+
+  useEffect(()=>{
+    readCat()
+  },[])
 
   const createCat = (cat) => {
     console.log("Cat has been created", cat)
+    fetch('http://localhost:3000/cats',{
+      body: JSON.stringify(cat),
+      headers: {
+        'Content-Type':'application/json'
+      },
+      method: 'POST'
+    })
+    .then(response => response.json())
+    .then(payload => readCat())
+    .catch(errors => console.log(errors))
   }
 
   return (

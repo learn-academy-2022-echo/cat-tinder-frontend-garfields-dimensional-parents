@@ -308,3 +308,53 @@ describe("<Component/>", ()=>{
 - As a user, I can be routed to the index page after I submit the new cat form.
   - useNavigate
   - Navigate to index page after submitting a form
+
+
+
+
+# Fetch
+## Request function with fetch
+```javascript
+const readCat = () => {
+    // Index endpoint
+    fetch('http://localhost:3000/cats')
+    // handle the promise with and parse the response.json
+    .then(response => response.json())
+    // set the payload of the javascript object to the current state
+    .then(payload => setCats(payload))
+    // catch any errors
+    .catch(errors => console.log(errors))
+  }
+
+
+// useEffect is a hook that executes any functions it is in charge of anytime a change is made to a DOM node it watches. 
+  useEffect(()=>{
+    // functions that need to be run
+    readCat()
+  },[
+    // Dom nodes being watched
+  ])
+```
+
+## Create Request function with fetch
+```javascript
+  const createCat = (cat) => {
+    console.log("Cat has been created", cat)
+    fetch('http://localhost:3000/cats',{
+      // fetch has a second argument of an object available 
+
+      // body represents data that will be transfered
+      body: JSON.stringify(cat),
+      // headers aleert the other program to useful information
+      headers: {
+        'Content-Type':'application/json'
+      },
+      // post let's the receiving program know what HTTP Verb is being passed along.  
+      method: 'POST'
+    })
+    .then(response => response.json())
+    // instead of using the payload we use the opportunity to re-establish the index of cats in our state
+    .then(payload => readCat())
+    .catch(errors => console.log(errors))
+  }
+  ```
