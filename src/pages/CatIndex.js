@@ -4,8 +4,14 @@ import { Card, CardBody, CardTitle, Button } from 'reactstrap'
 import { NavLink } from 'react-router-dom'
 
 // Component declaration 
-const CatIndex = ({ cats }) => {
+const CatIndex = ({ cats, readCat }) => {
+  
+
+  
   // JSX Return
+
+
+
   return (
     <main className="display-flex">
       { cats?.map((cat, index) => {
